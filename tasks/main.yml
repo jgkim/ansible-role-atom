@@ -1,18 +1,31 @@
 ---
-- name: Assure Atom and Atom package manager (APM) are installed.
-  command: which atom apm
+- name: Ensure Atom is installed.
+  homebrew_cask:
+    name: "atom"
+    state: present
+  environment:
+    HOMEBREW_CASK_OPTS: "--appdir={{ app_dir }} --binarydir={{ brew_dir }}/bin"
+
+- name: Assure Atom package manager (APM) is installed.
+  command: which apm
   register: return_value
   always_run: yes
   failed_when: return_value.rc
   changed_when: False
+  environment:
+    PATH: "{{ brew_dir }}/bin:{{ ansible_env.PATH }}"
 
 - name: Upgrade Atom packages if configured.
   atom:
     upgrade_all: yes
   when: atom_upgrade_all
+  environment:
+    PATH: "{{ brew_dir }}/bin:{{ ansible_env.PATH }}"
 
 - name: Ensure configured Atom packages are installed.
   atom:
     name: "{{ item }}"
     state: present
   with_items: atom_packages
+  environment:
+    PATH: "{{ brew_dir }}/bin:{{ ansible_env.PATH }}"

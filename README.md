@@ -32,7 +32,7 @@ Packages you would like to make sure are installed via `apm install`.
 Dependencies
 ------------
 
-None.
+* jgkim.cask
 
 
 Example Playbook

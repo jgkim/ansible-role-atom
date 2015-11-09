@@ -21,7 +21,7 @@ install:
   - mkdir ~/Workspace/
 
   # Install the dependency
-  - ansible-galaxy install jgkim.cask
+  - ansible-galaxy install -r tests/requirements.txt
 
 script:
   # Check the role/playbook's syntax.

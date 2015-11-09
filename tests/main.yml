@@ -2,10 +2,7 @@
 - hosts: localhost
   connection: local
   vars:
-    cask_packages:
-      - atom
     atom_packages:
       - language-ansible
   roles:
-    - jgkim.cask
     - ansible-role-atom
