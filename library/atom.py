@@ -97,8 +97,6 @@ class Atom(object):
 
     VALID_PACKAGE_CHARS = r'''
         \w                  # alphanumeric characters (i.e., [a-zA-Z0-9_])
-        @                   # ats (for versions)
-        .                   # dots
         -                   # dashes
     '''
 
