@@ -358,7 +358,7 @@ class Atom(object):
         rc, out, err = self.module.run_command(cmd)
         if rc == 0:
             pattern = r'^' + re.escape(self.current_package) + r'(?=@)'
-            return bool(re.search(pattern, out, re.MULTILINE))
+            return bool(re.search(pattern, out, re.MULTILINE | re.IGNORECASE))
         else:
             self.failed = True
             self.message = err.strip()
@@ -377,7 +377,7 @@ class Atom(object):
         ])
 
         if rc == 0:
-            return bool(re.search(re.escape(self.current_package), out, re.MULTILINE))
+            return bool(re.search(re.escape(self.current_package), out, re.MULTILINE | re.IGNORECASE))
         else:
             self.failed = True
             self.message = err.strip()
@@ -407,7 +407,7 @@ class Atom(object):
             '--no-confirm',
         ])
         if rc == 0:
-            if re.search(re.escape('(empty)'), out, re.MULTILINE):
+            if re.search(re.escape('(empty)'), out, re.MULTILINE | re.IGNORECASE):
                 self.message = 'Atom packages already upgraded.'
 
             else:
