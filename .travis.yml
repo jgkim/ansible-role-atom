@@ -1,0 +1,38 @@
+---
+language: objective-c
+
+sudo: true
+
+before_install:
+  # Setup Python environment
+  - source tests/terryfy/travis_tools.sh
+  - export CC=clang
+  - export CXX=clang++
+  - get_python_environment macpython 2.7.10 venv
+
+install:
+  # Install Ansible.
+  - pip install ansible
+
+  # Add ansible.cfg to pick up roles path.
+  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
+
+  # Create Workspace folder
+  - mkdir ~/Workspace/
+
+  # Install the dependency
+  - ansible-galaxy install jgkim.cask
+
+script:
+  # Check the role/playbook's syntax.
+  - "ansible-playbook -i 'localhost,' tests/main.yml --syntax-check"
+
+  # Run the role/playbook with ansible-playbook.
+  - "ansible-playbook -i 'localhost,' tests/main.yml"
+
+  # Run the role/playbook again, checking to make sure it's idempotent.
+  - >
+    ansible-playbook -i 'localhost,' tests/main.yml
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)

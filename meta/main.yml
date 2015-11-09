@@ -1,0 +1,19 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: James G. Kim
+  description: Ansible role for Atom packages
+  company: Tipplr
+  license: GPLv3
+  min_ansible_version: 1.6
+  platforms:
+  - name: GenericUNIX
+    versions:
+      - any
+  - name: GenericLinux
+    versions:
+      - any
+  galaxy_tags:
+    - atom
+    - utility
