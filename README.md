@@ -1,6 +1,9 @@
 Ansible Role: atom
 ==================
 
+[![Build Status](http://img.shields.io/travis/jgkim/ansible-role-atom.svg?style=flat)](https://travis-ci.org/jgkim/ansible-role-atom)
+[![Ansible Galaxy](http://img.shields.io/ansible/role/5898.svg?style=flat)](https://galaxy.ansible.com/detail#/role/5898)
+
 This role ensures that configured packages for Atom are installed.
 
 
@@ -14,6 +17,12 @@ Role Variables
 --------------
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
+
+```
+bin_dir: /usr/local/bin
+```
+
+The directory where `apm` can be found. If the directory is in `$PATH`, you don't need to set this variable.
 
 ```
 atom_upgrade_all: False
@@ -32,7 +41,7 @@ Packages you would like to make sure are installed via `apm install`.
 Dependencies
 ------------
 
-* jgkim.cask
+None.
 
 
 Example Playbook

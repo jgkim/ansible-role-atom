@@ -1,4 +1,5 @@
 ---
+bin_dir: /usr/local/bin
 atom_upgrade_all: False
 atom_packages:
   - language-ansible

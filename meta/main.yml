@@ -1,6 +1,5 @@
 ---
-dependencies:
-  - { role: jgkim.cask }
+dependencies: []
 
 galaxy_info:
   author: James G. Kim
@@ -16,5 +15,5 @@ galaxy_info:
     versions:
       - any
   galaxy_tags:
-    - atom
+    - editor
     - utility
