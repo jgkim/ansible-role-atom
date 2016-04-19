@@ -8,5 +8,5 @@
     atom_packages:
       - language-ansible
   roles:
-    - jgkim.cask
+    - jgkim.brew
     - ansible-role-atom

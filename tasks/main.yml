@@ -19,6 +19,6 @@
   atom:
     name: "{{ item }}"
     state: present
-  with_items: atom_packages
+  with_items: "{{ atom_packages }}"
   environment:
     PATH: "{{ bin_dir }}:{{ ansible_env.PATH }}"

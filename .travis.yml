@@ -21,7 +21,7 @@ install:
   - mkdir ~/Workspace/
 
   # Install the dependency
-  - ansible-galaxy install -r tests/requirements.txt
+  - ansible-galaxy install -r tests/requirements.yml
 
 script:
   # Check the role/playbook's syntax.
