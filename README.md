@@ -2,7 +2,6 @@ Ansible Role: atom
 ==================
 
 [![Build Status](http://img.shields.io/travis/jgkim/ansible-role-atom.svg?style=flat)](https://travis-ci.org/jgkim/ansible-role-atom)
-[![Ansible Galaxy](http://img.shields.io/ansible/role/5898.svg?style=flat)](https://galaxy.ansible.com/detail#/role/5898)
 
 This role ensures that configured packages for Atom are installed.
 
