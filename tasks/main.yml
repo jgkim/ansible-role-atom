@@ -11,7 +11,7 @@
 - name: Upgrade Atom packages if configured.
   atom:
     upgrade_all: yes
-  when: atom_upgrade_all
+  when: atom_upgrade_all|bool
   environment:
     PATH: "{{ bin_dir }}:{{ ansible_env.PATH }}"
 
